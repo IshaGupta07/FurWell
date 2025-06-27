@@ -1,0 +1,382 @@
+/* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+  --primary: #6C63FF;
+  --secondary: #FF6584;
+  --accent: #42C2FF;
+  --dark: #2D3748;
+  --light: #F7FAFC;
+  --success: #48BB78;
+  --warning: #ED8936;
+  --danger: #F56565;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.home-dashboard-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  padding: 20px;
+}
+
+/* Animated background elements */
+.bg-paws {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 30c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm0-28c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12zm-12 44c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12-12-5.4-12-12zm28 0c0-8.8 7.2-16 16-16s16 7.2 16 16-7.2 16-16 16-16-7.2-16-16zm16 16c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12zM20 70c0-8.8 7.2-16 16-16s16 7.2 16 16-7.2 16-16 16-16-7.2-16-16zm16 16c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z' fill='%236C63FF' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  z-index: 0;
+  animation: bgMove 100s linear infinite;
+}
+
+.bg-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.10'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  font-family: 'Fredoka One', cursive;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.paw-icon {
+  font-size: 1.5em;
+  color: var(--secondary);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .paw-icon {
+  transform: rotate(15deg) scale(1.2);
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, var(--danger) 0%, #F78CA0 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(247, 140, 160, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(247, 140, 160, 0.4);
+}
+
+.logout-btn:active {
+  transform: translateY(1px);
+}
+
+/* Main card styles */
+.main-card {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+  margin-top: 80px;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.welcome-section {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.welcome-section h1 {
+  font-size: 2.8rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.welcome-section h1 span {
+  color: var(--primary);
+  font-family: 'Fredoka One', cursive;
+  position: relative;
+  display: inline-block;
+}
+
+.welcome-section h1 span::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(108, 99, 255, 0.3);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.dog-icon {
+  font-size: 60px;
+  color: var(--primary);
+  margin: 20px 0;
+  animation: pulse 2s infinite alternate;
+}
+
+/* Feature buttons */
+.feature-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature-btn {
+  background: white;
+  color: var(--dark);
+  font-size: 1.1rem;
+  padding: 25px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.feature-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-btn:active {
+  transform: translateY(2px);
+}
+
+.feature-btn span {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.btn-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.checker-btn .btn-icon-circle {
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--primary);
+}
+
+.diet-btn .btn-icon-circle {
+  background: rgba(255, 101, 132, 0.1);
+  color: var(--secondary);
+}
+
+.adoptpage-btn .btn-icon-circle {
+  background: rgba(66, 194, 255, 0.1);
+  color: var(--accent);
+}
+
+.vet-btn .btn-icon-circle {
+  background: rgba(72, 187, 120, 0.1);
+  color: var(--success);
+}
+
+.checker-btn:hover .btn-icon-circle {
+  background: var(--primary);
+  color: white;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.diet-btn:hover .btn-icon-circle {
+  background: var(--secondary);
+  color: white;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.adoptpage-btn:hover .btn-icon-circle {
+  background: var(--accent);
+  color: white;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.vet-btn:hover .btn-icon-circle {
+  background: var(--success);
+  color: white;
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .main-card {
+    padding: 25px;
+    margin-top: 70px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .feature-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-btn {
+    padding: 20px 15px;
+  }
+  
+  .dog-icon {
+    font-size: 45px;
+  }
+  
+  .btn-icon-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .logout-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .main-card {
+    width: 95%;
+    padding: 20px 15px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 1.8rem;
+  }
+}

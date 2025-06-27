@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+  --primary: #6C63FF;
+  --secondary: #FF6584;
+  --light: #f5f6fa;
+  --text-dark: #2d3436;
+  --text-light: #636e72;
+  --card-bg: #ffffff;
+}
+
+.diet-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px;
+
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-family: 'Fredoka One', cursive;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.selector-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.size-selector, .age-selector {
+  flex: 1;
+}
+
+.selector-container h3 {
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.selector-buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.selector-btn {
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--primary);
+  border-radius: 30px;
+  background-color: #fff;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selector-btn:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.selector-btn.active {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.diet-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  color: var(--text-dark);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: var(--primary);
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.diet-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 85%;
+  color: var(--text-dark);
+}
+
+.food-recommendations h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.food-item {
+  background: #fdfbff;
+  padding: 1rem 1.2rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.food-item:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.food-icon {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .selector-container {
+    flex-direction: column;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .diet-card {
+    padding: 1.5rem;
+  }
+
+  .diet-description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+}

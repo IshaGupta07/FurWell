@@ -1,0 +1,248 @@
+/* src/components/AdoptDonatePet/DonatePage.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --hover-gradient: linear-gradient(135deg, #141414 0%, #e88b1a 100%);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --text-dark: #1a1a2e;
+  --text-medium: #4a4a6a;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.15);
+  --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --border-radius: 16px;
+  --input-border: 1px solid rgba(0, 0, 0, 0.1);
+  --focus-border: 1px solid #6a11cb;
+}
+
+.donate-form-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(-15deg, #e6f0ff 0%, #f8f9ff 50%, #e6f0ff 100%);
+  background-size: 300% 300%;
+  animation: gradientBG 12s ease infinite;
+}
+
+.donate-form {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.donate-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.donate-form h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  position: relative;
+}
+
+.donate-form h3::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: 3px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.donate-form label {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Photo Upload Section */
+.photo-upload-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.photo-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: var(--shadow-sm);
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-preview .placeholder-icon {
+  font-size: 2.5rem;
+  color: #6a11cb;
+}
+
+.photo-upload {
+  flex: 1;
+}
+
+.donate-form input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: var(--input-border);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.donate-form input[type="file"]:focus {
+  border: var(--focus-border);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+  outline: none;
+}
+
+/* Other Input Fields */
+.donate-form input[type="text"],
+.donate-form input[type="email"],
+.donate-form select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: var(--input-border);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.donate-form input[type="text"]:focus,
+.donate-form input[type="email"]:focus,
+.donate-form select:focus {
+  border: var(--focus-border);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+  outline: none;
+}
+
+/* Submit Button */
+.donate-form button[type="submit"] {
+  background: var(--primary-gradient);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  width: auto;
+  margin: 10px auto 0;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.donate-form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background: var(--hover-gradient);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .donate-form {
+    padding: 30px;
+  }
+
+  .donate-form h3 {
+    font-size: 1.7rem;
+  }
+
+  .photo-upload-wrapper {
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+
+  .photo-preview {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Animations */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.phone-verification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.otp-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.otp-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.verified-badge {
+  color: green;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.disabled-button {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.phone-verification input[type="tel"] {
+  flex: 1;
+}
+
+
